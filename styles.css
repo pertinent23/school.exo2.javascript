@@ -1,0 +1,136 @@
+:root{
+    --white: #FAFAFA;
+    --light-gray: #DDDDDD;
+    --gray: #555555;
+    --purple: #6930C3;
+    --error: #FF1122;
+    --gadient: linear-gradient( 40deg, #7400B8, #6930C3, #7400B8, #6930C3 );
+}
+
+*{
+    position: relative;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    letter-spacing: 0.09em;
+}
+
+html, main, body{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+main{
+    background-image: var(--gadient);
+}
+
+form{
+    width: calc( 100% - 30px );
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 550px;
+    background-color: var(--white);
+    padding: 6% 0px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba( 0, 0, 0, 0.3 );
+    overflow: hidden;
+    background-image: url( './img.svg' );
+}
+
+form input{
+    outline: none;
+}
+
+form .form-item{
+    margin: 15px;
+    width: 100%;
+    max-width: 300px;
+}
+
+form .form-item input{
+    height: 45px;
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    padding-left: 20px;
+    background-color: transparent;
+    z-index: 5;
+}
+
+form .form-item input + span{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    border: 1px solid var(--light-gray);
+    border-radius: 8px;
+    transition-duration: 0.2s;
+}
+
+form .form-item input:not( :placeholder-shown ) + span label,
+form .form-item input:focus + span label{
+    font-size: 0.8em;
+    height: 15px;
+    line-height: normal;
+    top: -10px;
+    padding: 5px;
+    left: 10px;
+    color: var(--purple);
+}
+
+form .form-item input:not( :placeholder-shown ) + span,
+form .form-item input:focus + span{
+    border-color: var(--purple);
+}
+
+form .form-item label{
+    position: absolute;
+    display: block;
+    border-radius: 8px;
+    height: 100%;
+    background-color: var(--white);
+    top: 0px;
+    left: 0px;
+    padding-left: 20px;
+    padding-right: 15px;
+    line-height: 45px;
+    transition-duration: 0.3s;
+    color: var(--gray);
+    z-index: 10;
+}
+
+
+form .form-item.error span,
+form .form-item.error span label{
+    color: var(--error) !important;
+    border-color: var(--error) !important;
+}
+
+
+form #error{
+    font-size: 0.85em;
+    color: var(--error);
+    margin-top: 15px;
+    width: calc( 100% - 30px );
+}
+
+form input#submit{
+    margin-top: 35px;
+    background-image: var(--gadient);
+    padding: 18px 60px;
+    border: none;
+    border-radius: 8px;
+    color: var(--white);
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+}
